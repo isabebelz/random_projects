@@ -4,11 +4,11 @@ import constants.CommonConstants;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-/** LoginGUI é uma subclasse da classe JFrame. Ela herda todos os recursos e
- * funcionalidades da classe JFrame e pode adicionar ou modificar comportamentos
- * específicos conforme necessário. */
-
+/** LoginGUI, representa uma janela de interface gráfica de usuário (GUI) que serve como uma tela de login.
+ * Ela é baseada na biblioteca Swing e estende a classe JFrame */
 public class LoginGUI extends JFrame {
     public LoginGUI() {
         super(CommonConstants.APP_NAME);
@@ -68,6 +68,23 @@ public class LoginGUI extends JFrame {
         springLayout.putConstraint(SpringLayout.WEST, loginButton, 140, SpringLayout.WEST, loginPanel);
 
         loginPanel.add(loginButton);
+
+
+        loginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                String username = usernameText.getText();
+                String password = passwordText.getText();
+
+                if(username.equals("username") && password.equals("password")) {
+                    JOptionPane.showMessageDialog(null, "LOGIN SUCCESSFUL!");
+                } else {
+                    JOptionPane.showMessageDialog(null,"LOGIN FAILED...");
+                }
+
+            }
+        });
 
         this.getContentPane().add(loginPanel);
     }
