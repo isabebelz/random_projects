@@ -42,12 +42,34 @@ public class WeatherAppGUI extends JFrame {
         add(searchTextField);
 
         // search button
-        JButton searchButton = new JButton(loadImage("projects/WeatherApp/assets/search.png"));
+        JButton searchButton = new JButton(loadImage("assets/search.png"));
 
         // change the cursor to a hand cursor when hovering over this button
         searchButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         searchButton.setBounds(375, 13, 47, 45);
         add(searchButton);
+
+        // weather image
+        JLabel weatherConditionImage = new JLabel(loadImage("assets/cloudy.png"));
+        weatherConditionImage.setBounds(0,125,450,217);
+        add(weatherConditionImage);
+
+        // temperature text
+        JLabel temperatureText = new JLabel("10ºC");
+        temperatureText.setBounds(0,350,450,54);
+        temperatureText.setFont(new Font("Dialog", Font.BOLD, 48));
+
+        // center the text
+        temperatureText.setHorizontalAlignment(SwingConstants.CENTER);
+        add(temperatureText);
+
+        // weather condition description
+        JLabel weatherConditionDesc = new JLabel("Cloudy");
+        weatherConditionDesc.setBounds(0,405,450, 36);
+        weatherConditionDesc.setFont(new Font("Dialog", Font.PLAIN, 32));
+        weatherConditionDesc.setHorizontalAlignment(SwingConstants.CENTER);
+        add(weatherConditionDesc);
+
     }
 
     // used to create images in the gui components
